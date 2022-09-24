@@ -119,7 +119,26 @@ public class TechJobs {
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
+        String newLine = "\n";
+        String divider = "*****";
+        String colon = ": ";
+        //I don't like to use strings in my work I'd rather use variables so here's those being initialized
 
-        System.out.println("printJobs is not implemented yet");
-    }
+        if (someJobs.size() == 0) {
+            System.out.print("No Results");
+            return; // no size, no results
+        }
+
+// loop inside the hashmap that holds all the categories:
+        for (HashMap<String,String> someJob : someJobs) {
+            System.out.println(newLine + divider); //space between listings + a new starting divider
+// access the data within those categories & recall the key/values:
+            for (Map.Entry<String, String> someJobInfo : someJob.entrySet()) {
+                System.out.println(someJobInfo.getKey() + colon + someJobInfo.getValue());
+            }
+            System.out.println(divider); //ending divider
+        } //end loop
+
+    }//end printJobs method
+
 }
